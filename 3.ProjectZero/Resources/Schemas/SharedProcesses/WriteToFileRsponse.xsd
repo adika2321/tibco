@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns:WriteToFileRsponse="http://www.tibco.com/schemas/0.ProjectZero/Resources/Schemas/SharedProcesses/WriteToFileRsponse"
+	 xmlns:Response="http://www.tibco.com/schemas/0.ProjectZero/Resources/Schemas/Commons/Response"
+	 xmlns:Header="http://www.tibco.com/schemas/0.ProjectZero/Resources/Schemas/Commons/Schema"
+	 targetNamespace="http://www.tibco.com/schemas/0.ProjectZero/Resources/Schemas/SharedProcesses/WriteToFileRsponse"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:import namespace="http://www.tibco.com/schemas/0.ProjectZero/Resources/Schemas/Commons/Schema"/>
+	<xs:import namespace="http://www.tibco.com/schemas/0.ProjectZero/Resources/Schemas/Commons/Response"/>
+	<xs:element name="WriteToFileResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Header:Header"/>
+				<xs:element ref="WriteToFileRsponse:Body"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Body">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Response:Response"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
