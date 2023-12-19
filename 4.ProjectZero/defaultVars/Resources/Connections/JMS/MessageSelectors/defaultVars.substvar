@@ -1,0 +1,29 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<repository xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xmlns = "http://www.tibco.com/xmlns/repo/types/2002">
+	<globalVariables>
+		<globalVariable>
+			<name>Delhi</name>
+			<value>city='DI'</value>
+			<deploymentSettable>true</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<modTime>1702907806320</modTime>
+		</globalVariable>
+		<globalVariable>
+			<name>Mumbai</name>
+			<value>city='BOM'</value>
+			<deploymentSettable>true</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<modTime>1702907806345</modTime>
+		</globalVariable>
+		<globalVariable>
+			<name>Pune</name>
+			<value>city='PU'</value>
+			<deploymentSettable>true</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<modTime>1702907806355</modTime>
+		</globalVariable>
+	</globalVariables>
+</repository>

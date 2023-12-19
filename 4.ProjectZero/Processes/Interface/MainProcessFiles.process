@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.tibco.com/schemas/0.ProjectZero/Resources/Schemas/Orchestration/ProcessFilesRequest" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns="http://www.tibco.com/schemas/0.ProjectZero/Resources/Schemas/Services/ListReadFilesRequest" xmlns:ns2="http://www.tibco.com/schemas/0.ProjectZero/Resources/Schemas/Commons/Schema" xmlns:ns1="http://www.tibco.com/schemas/0.ProjectZero/Resources/Schemas/Commons/Context">
+    <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/schemas/0.ProjectZero/Resources/Schemas/Orchestration/ProcessFilesRequest" schemaLocation="/Resources/Schemas/Orchestration/ProcessFilesRequest.xsd"/>
+    <pd:name>Processes/Interface/MainProcessFiles.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType ref="pfx:ProcessFilesRequest"/>
+    <pd:startX>195</pd:startX>
+    <pd:startY>127</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>495</pd:endX>
+    <pd:endY>127</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1702622218448</pd:targetNamespace>
+    <pd:activity name="List&amp;ReadOnlyCopyFiles">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>353</pd:x>
+        <pd:y>128</pd:y>
+        <config>
+            <processName>/Processes/Services/SharedFolders/List&amp;ReadOnlyCopyFiles.process</processName>
+        </config>
+        <pd:inputBindings>
+            <pfx:ProcessFilesRequest>
+                <xsl:copy-of select="$Start/pfx:ProcessFilesRequest/ns2:Header"/>
+                <xsl:copy-of select="$Start/pfx:ProcessFilesRequest/pfx:Body"/>
+            </pfx:ProcessFilesRequest>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>List&amp;ReadOnlyCopyFiles</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>List&amp;ReadOnlyCopyFiles</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>
