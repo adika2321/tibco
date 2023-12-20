@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.tibco.com/schemas/0.ProjectZero/Resources/Schemas/Services/ListReadFilesResponse" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:pfx2="http://www.tibco.com/schemas/0.ProjectZero/Resources/Schemas/Orchestration/ProcessFilesRequest" xmlns:ns="http://www.tibco.com/schemas/0.ProjectZero/Resources/Schemas/Commons/Schema" xmlns:pfx3="http://www.tibco.com/schemas/0.ProjectZero/Resources/Schemas/Commons/Context">
+    <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/schemas/0.ProjectZero/Resources/Schemas/Services/ListReadFilesResponse" schemaLocation="/Resources/Schemas/Services/List&amp;ReadFilesResponse.xsd"/>
+    <pd:name>Tests/TestList&amp;ReadOnlyCopyFiles.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startX>191</pd:startX>
+    <pd:startY>145</pd:startY>
+    <pd:returnBindings>
+        <pfx:ListReadFilesResponse>
+            <xsl:copy-of select="$ListReadOnlyCopyFiles/pfx:ListReadFilesResponse/ns:Header"/>
+            <xsl:copy-of select="$ListReadOnlyCopyFiles/pfx:ListReadFilesResponse/pfx:Body"/>
+        </pfx:ListReadFilesResponse>
+    </pd:returnBindings>
+    <pd:endName>End</pd:endName>
+    <pd:endType ref="pfx:ListReadFilesResponse"/>
+    <pd:endX>477</pd:endX>
+    <pd:endY>147</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1702881271124</pd:targetNamespace>
+    <pd:activity name="List&amp;ReadOnlyCopyFiles">
+        <pd:type>com.tibco.pe.core.CallProcessActivity</pd:type>
+        <pd:resourceType>ae.process.subprocess</pd:resourceType>
+        <pd:x>330</pd:x>
+        <pd:y>142</pd:y>
+        <config>
+            <processName>/Processes/Services/SharedFolders/List&amp;ReadOnlyCopyFiles.process</processName>
+        </config>
+        <pd:inputBindings>
+            <pfx2:ProcessFilesRequest>
+                <ns:Header>
+                    <pfx3:Context>
+                        <pfx3:correlationId>
+                            <xsl:value-of select="&quot;879706&quot;"/>
+                        </pfx3:correlationId>
+                    </pfx3:Context>
+                    <ns:timestamp>
+                        <xsl:value-of select="current-dateTime()"/>
+                    </ns:timestamp>
+                </ns:Header>
+                <pfx2:Body>
+                    <pfx2:source>
+                        <pfx2:sourcePath>
+                            <xsl:value-of select="&quot;C:\Users\AdikaKarnataki\Desktop\Files\Output\&quot;"/>
+                        </pfx2:sourcePath>
+                        <pfx2:sourceFilePattern>
+                            <xsl:value-of select="&quot;*&quot;"/>
+                        </pfx2:sourceFilePattern>
+                    </pfx2:source>
+                    <pfx2:target>
+                        <pfx2:targetPath>
+                            <xsl:value-of select="&quot;C:\Users\AdikaKarnataki\Desktop\Files\Copied&quot;"/>
+                        </pfx2:targetPath>
+                    </pfx2:target>
+                </pfx2:Body>
+            </pfx2:ProcessFilesRequest>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>List&amp;ReadOnlyCopyFiles</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>List&amp;ReadOnlyCopyFiles</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>
